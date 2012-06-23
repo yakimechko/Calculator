@@ -31,7 +31,7 @@ namespace BinaryAcademy.CalculatorEngine.Core
         {
             if (Math.Abs(rightArg) < 10e-9)
                 throw new DivideByZeroException(("Error: Division by zero was performed!"));
-            return leftArg/rightArg;
+            return leftArg / rightArg;
         }
     }
 }

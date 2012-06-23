@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="CalculatorEngineTests.cs" />
     <Compile Include="CalculatorTest.cs" />
-    <Compile Include="DistributorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
