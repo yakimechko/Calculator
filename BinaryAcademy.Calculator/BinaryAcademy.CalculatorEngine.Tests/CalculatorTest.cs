@@ -6,7 +6,13 @@ namespace BinaryAcademy.CalculatorEngine.Tests
     [TestFixture]
     public class SimpleCalculatorTest
     {
-        private readonly SimpleCalculator calculator = new SimpleCalculator();
+        private SimpleCalculator calculator;
+
+        [TestFixtureSetUp]
+        public void SetUp()
+        {
+            calculator = new SimpleCalculator();
+        }
 
         [Test]
         public void Should_ResultEqual7_WhenAdd3And4()

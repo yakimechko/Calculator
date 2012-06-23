@@ -1,4 +1,6 @@
-﻿namespace BinaryAcademy.CalculatorEngine.Core
+﻿using System;
+
+namespace BinaryAcademy.CalculatorEngine.Core
 {
     public class CalcEngine
     {
@@ -28,7 +30,14 @@
 
         public void Divide(double leftArg, double rightArg)
         {
-            distributor.Write(calculator.Divide(leftArg, rightArg));
+            try
+            {
+                distributor.Write(calculator.Divide(leftArg, rightArg));
+            }
+            catch (DivideByZeroException exception)
+            {
+                distributor.Write(exception.Message);                
+            }
         }
     }
 }
