@@ -4,48 +4,38 @@ using NUnit.Framework;
 namespace BinaryAcademy.CalculatorEngine.Tests
 {
     [TestFixture]
-    public class CalculatorTest
+    public class SimpleCalculatorTest
     {
+        private readonly SimpleCalculator calculator = new SimpleCalculator();
+
         [Test]
         public void Should_ResultEqual7_WhenAdd3And4()
         {
-            var calculator = new SimpleCalculator();
-            Assert.AreEqual(7, calculator.Add(3, 4));
+            Assert.AreEqual(7, calculator.Add(3, 4), 10e-4);
         }
 
         [Test]
         public void Should_ResultEqual9_WhenSubtract5From14()
         {
-            var calculator = new SimpleCalculator();
-            Assert.AreEqual(9, calculator.Subtract(14, 5));
+            Assert.AreEqual(9, calculator.Subtract(14, 5), 10e-4);
         }
 
         [Test]
         public void Should_ResultEqual15_WhenMyltiply5And3()
         {
-            var calculator = new SimpleCalculator();
-            Assert.AreEqual(15, calculator.Myltiply(5, 3));
+            Assert.AreEqual(15, calculator.Myltiply(5, 3), 10e-4);
         }
 
         [Test]
         public void Should_ResultEqual11_WhenDivide33By3()
         {
-            var calculator = new SimpleCalculator();
-            Assert.AreEqual(11, calculator.Divide(33, 3));
+            Assert.AreEqual(11, calculator.Divide(33, 3), 10e-4);
         }
 
         [Test]
-        public void ShouldNot_RaiseAnException_WhenDivideByZero()
+        public void Should_RaiseDivideByZeroException_WhenDivideByZero()
         {
-            var calculator = new SimpleCalculator();
-            Assert.DoesNotThrow(() => calculator.Divide(7, 0));
-        }
-
-        [Test]
-        public void Should_ResultEqualNaN_WhenDivideByZero()
-        {
-            var calculator = new SimpleCalculator();
-            Assert.IsNaN(calculator.Divide(5, 0));
+            Assert.Throws<System.DivideByZeroException>(() => calculator.Divide(7, 0));
         }
     }
 }

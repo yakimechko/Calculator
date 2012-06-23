@@ -1,4 +1,6 @@
-﻿namespace BinaryAcademy.CalculatorEngine.Core
+﻿using System;
+
+namespace BinaryAcademy.CalculatorEngine.Core
 {
     public interface ICalculator
     {
@@ -27,7 +29,8 @@
 
         public double Divide(double leftArg, double rightArg)
         {
-            if (rightArg.Equals(0)) return double.NaN;
+            if (Math.Abs(rightArg) < 10e-9)
+                throw new DivideByZeroException(("Error: Division by zero was performed!"));
             return leftArg/rightArg;
         }
     }
